@@ -1,5 +1,3 @@
-markdown
-
 # Vaelcorp Defence (v0.0.5)
 
 **An autonomous, AI-assisted web application vulnerability research agent.**
@@ -53,59 +51,60 @@ playwright install chromium
 
 # Initialize Vaelcorp
 vael init
+```
 
-🧠 Activating the AI Brain (Optional)
+## 🧠 Activating the AI Brain (Optional)
 
-Vaelcorp uses Groq's API for AI-driven WAF evasion and payload generation. You can get a 100% free API key at console.groq.com.
+Vaelcorp uses Groq's API for AI-driven WAF evasion and payload generation. You can get a **100% free API key** at [console.groq.com](https://console.groq.com).
 
 To activate the AI, export your key in the terminal before running a scan:
-bash
-
+```bash
 export GROQ_API_KEY="gsk_your_api_key_here"
+```
+*Note: If no key is provided, Vaelcorp will seamlessly fall back to its deterministic payload engine and still function perfectly.*
 
-Note: If no key is provided, Vaelcorp will seamlessly fall back to its deterministic payload engine and still function perfectly.
-🎯 Usage
+## 🎯 Usage
 
-Basic Scan (HTML):
-bash
-
+**Basic Scan (HTML):**
+```bash
 vael scan -t "https://example.com" -p safe
+```
 
-JavaScript Scan (React/Vue/Angular):
-bash
-
+**JavaScript Scan (React/Vue/Angular):**
+```bash
 vael scan -t "https://example.com" -p safe --js
+```
 
-Authenticated Scan (Behind a Login):
-bash
-
+**Authenticated Scan (Behind a Login):**
+```bash
 vael scan -t "https://example.com" -p safe --cookie "PHPSESSID=abc123"
+```
 
-Two-Session IDOR Check:
-bash
-
+**Two-Session IDOR Check:**
+```bash
 vael scan -t "https://example.com" -p safe --cookie "session=userA" --cookie2 "session=userB"
+```
 
-Bearer Token / API Scan (Supabase, etc.):
-bash
-
+**Bearer Token / API Scan (Supabase, etc.):**
+```bash
 vael scan -t "https://api.example.com" --bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+```
 
-View Findings & Reports:
-bash
-
+**View Findings & Reports:**
+```bash
 # View the top 50 recent findings in the terminal
 vael findings
 
 # View available skills
 vael skills
+```
 
-📁 Output
+## 📁 Output
+All findings are saved to a local SQLite database (`vael.db`).
+Reports are saved in the `/reports` directory as both Markdown and a dark-mode HTML dashboard.
 
-All findings are saved to a local SQLite database (vael.db).
-Reports are saved in the /reports directory as both Markdown and a dark-mode HTML dashboard.
-⚖️ Disclaimer
+## ⚖️ Disclaimer
+This tool is for **authorized security testing and educational purposes only**. Do not use Vaelcorp against targets without explicit, written permission from the system owner. The creators (Vaelcorp Defence) assume no liability for misuse or damage caused by this program.
 
-This tool is for authorized security testing and educational purposes only. Do not use Vaelcorp against targets without explicit, written permission from the system owner. The creators (Vaelcorp Defence) assume no liability for misuse or damage caused by this program.
-
-Built by Vaelcorp Defence. Stay stealthy.
+---
+*Built by Vaelcorp Defence. Stay stealthy.*
