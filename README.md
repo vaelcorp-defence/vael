@@ -1,3 +1,5 @@
+markdown
+
 # Vaelcorp Defence (v0.0.5)
 
 **An autonomous, AI-assisted web application vulnerability research agent.**
@@ -50,7 +52,7 @@ pip install -e .
 playwright install chromium
 
 # Initialize Vaelcorp
-vael init```
+vael init
 
 🧠 Activating the AI Brain (Optional)
 
@@ -67,36 +69,36 @@ Note: If no key is provided, Vaelcorp will seamlessly fall back to its determini
 Basic Scan (HTML):
 bash
 
-```vael scan -t "https://example.com" -p safe```
+vael scan -t "https://example.com" -p safe
 
 JavaScript Scan (React/Vue/Angular):
 bash
 
-```vael scan -t "https://example.com" -p safe --js```
+vael scan -t "https://example.com" -p safe --js
 
 Authenticated Scan (Behind a Login):
 bash
 
-```vael scan -t "https://example.com" -p safe --cookie "PHPSESSID=abc123"```
+vael scan -t "https://example.com" -p safe --cookie "PHPSESSID=abc123"
 
 Two-Session IDOR Check:
 bash
 
-```vael scan -t "https://example.com" -p safe --cookie "session=userA" --cookie2 "session=userB"```
+vael scan -t "https://example.com" -p safe --cookie "session=userA" --cookie2 "session=userB"
 
 Bearer Token / API Scan (Supabase, etc.):
 bash
 
-```vael scan -t "https://api.example.com" --bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."```
+vael scan -t "https://api.example.com" --bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 
 View Findings & Reports:
 bash
 
 # View the top 50 recent findings in the terminal
-```vael findings```
+vael findings
 
 # View available skills
-```vael skills```
+vael skills
 
 📁 Output
 
