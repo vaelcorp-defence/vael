@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: vael
+Version: 0.0.1
+Summary: Autonomous web application vulnerability research agent by Vaelcorp Defence
+Requires-Python: >=3.12
+Requires-Dist: typer>=0.12
+Requires-Dist: pydantic>=2.7
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"

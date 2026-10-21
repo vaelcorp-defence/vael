@@ -1,0 +1,50 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Vaelcorp Defence - Report</title>
+            <style>
+                body { background-color: #121212; color: #e0e0e0; font-family: 'Courier New', monospace; padding: 20px; }
+                h1 { color: #ff4444; border-bottom: 2px solid #333; padding-bottom: 10px; }
+                .finding { background: #1e1e1e; border-left: 4px solid #ff4444; margin-bottom: 20px; padding: 15px; border-radius: 4px; }
+                .High { border-left-color: #ff4444; }
+                .Medium { border-left-color: #ffaa00; }
+                .Low { border-left-color: #00aaff; }
+                .badge { padding: 3px 8px; border-radius: 3px; font-weight: bold; font-size: 0.8em; }
+                .bg-High { background: #ff4444; color: #fff; }
+                .bg-Medium { background: #ffaa00; color: #000; }
+                .bg-Low { background: #00aaff; color: #fff; }
+                pre { background: #000; padding: 10px; border-radius: 4px; overflow-x: auto; color: #00ff00; }
+                .url-list { list-style-type: none; padding-left: 0; color: #888; }
+            </style>
+        </head>
+        <body>
+            <h1>Vaelcorp Defence - Scan Report</h1>
+            <p><strong>Target:</strong> https://www.kuleuven.be/sapredir/huisvesting</p>
+            <p><strong>Date:</strong> 2026-10-21_02-55-25</p>
+            <p><strong>Total Unique Findings:</strong> 4</p>
+            <hr style="border-color: #333;">
+        
+            <div class="finding Info">
+                <h3><span class="badge bg-Info">Info</span> 1. Missing Header: X-Frame-Options</h3>
+                <p><strong>Skill:</strong> Security Headers</p>
+                <p><strong>Evidence:</strong> HTTP 302 response did not contain X-Frame-Options.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Run this command to verify:
+curl -I https://www.kuleuven.be/sapredir/huisvesting</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>https://www.kuleuven.be/sapredir/huisvesting</li><li>https://www.kuleuven.be/onderzoek</li><li>https://www.kuleuven.be/kuleuven/english</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 2. Missing SameSite Attribute on Cookie &#x27;iamregistrationdata&#x27;</h3>
+                <p><strong>Skill:</strong> CSRF (Cross-Site Request Forgery)</p>
+                <p><strong>Evidence:</strong> The cookie &#x27;iamregistrationdata&#x27; is set without the SameSite attribute, making it vulnerable to Cross-Site Request Forgery.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Intercept the response for https://www.kuleuven.be/sapredir/huisvesting in Burp Suite and check the Set-Cookie header.</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>https://www.kuleuven.be/sapredir/huisvesting</li></ul></div>
+            <div class="finding Info">
+                <h3><span class="badge bg-Info">Info</span> 3. Missing Header: X-Content-Type-Options</h3>
+                <p><strong>Skill:</strong> Security Headers</p>
+                <p><strong>Evidence:</strong> HTTP 301 response did not contain X-Content-Type-Options.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Run this command to verify:
+curl -I https://www.kuleuven.be/onderzoek</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>https://www.kuleuven.be/onderzoek</li><li>https://www.kuleuven.be/kuleuven/english</li></ul></div>
+            <div class="finding Info">
+                <h3><span class="badge bg-Info">Info</span> 4. Missing Header: Content-Security-Policy</h3>
+                <p><strong>Skill:</strong> Security Headers</p>
+                <p><strong>Evidence:</strong> HTTP 301 response did not contain Content-Security-Policy.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Run this command to verify:
+curl -I https://www.kuleuven.be/onderzoek</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>https://www.kuleuven.be/onderzoek</li><li>https://www.kuleuven.be/kuleuven/english</li></ul></div></body></html>

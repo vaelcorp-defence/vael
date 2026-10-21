@@ -1,0 +1,2 @@
+[console_scripts]
+vael = vael.cli:app

