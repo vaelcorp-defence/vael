@@ -1,4 +1,7 @@
 # Vaelcorp Defence (v0.0.5)
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg)
+![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)
+![Status](https://img.shields.io/badge/Status-Beta-orange.svg)
 
 **An autonomous, AI-assisted web application vulnerability research agent.**
 
